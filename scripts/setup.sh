@@ -10,10 +10,11 @@ source ./.venv/bin/activate
 # install python packages
 pip install -r requirements.txt
 
-# create local data storage directory
+# create local data storage and logging directories
 mkdir -p data
+mkdir -p logs
 
-# setup local postgresql db
+# setup local postgresql db using docker
 docker pull postgres
 docker run --name $CONTAINER_NAME \
             -e POSTGRES_USER=$PG_USERNAME \
@@ -24,6 +25,5 @@ until [ "`docker inspect -f {{.State.Running}} $CONTAINER_NAME`"=="true" ]; do
     sleep 1;
 done;
 sleep 5
-#docker exec $CONTAINER_NAME psql -U $PG_USERNAME -c "CREATE DATABASE \"$PG_DB\";"
 docker cp sql/install.sql $CONTAINER_NAME:.
 docker exec $CONTAINER_NAME psql -U $PG_USERNAME -d $PG_DB -c "\i install.sql;"

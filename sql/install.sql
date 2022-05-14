@@ -15,9 +15,3 @@ CREATE TABLE public.coin_month_data (
 	max_price float8 NULL,
 	CONSTRAINT coin_month_data_pkey PRIMARY KEY (coin, year, month)
 );
-
-INSERT INTO public.coin_data
-(coin, "date", price)
-VALUES
-('bitcoin', '2022-05-01', 35000.0);
-
