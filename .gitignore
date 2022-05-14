@@ -1,0 +1,24 @@
+# Python files
+airflow*
+__pycache__/
+
+# Virtual environment
+.venv/
+
+# VScode metada
+.vscode/*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# keys and secrets
+.env
+*.pem
+
+# Logs and files
+logs/
+data/
+tmp/
+*.log
+*.dat
