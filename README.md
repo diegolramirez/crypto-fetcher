@@ -33,10 +33,10 @@ PG_PORT=5432
 CONTAINER_NAME=postgres-1
 ```
 
-Afterwards run the script `setup.sh` as follows:
+Afterwards run the script `scripts/setup.sh` from the root folder as follows:
 
 ```bash:
-bash setup.sh
+./scripts/setup.sh
 ```
 
 This script install the required Python packages and spins-up a Docker container with a PostgreSQL DataBase to store the retrieved data.
